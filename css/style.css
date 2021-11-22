@@ -1,0 +1,24 @@
+body{
+    background-image: url('/img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;   
+    color: white;
+}
+
+#foto{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid black 1px;
+}
+
+.contenedor-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.oculto{
+    display: none;
+}
