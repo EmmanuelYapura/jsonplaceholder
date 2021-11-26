@@ -1,6 +1,6 @@
-let url = 'https://jsonplaceholder.typicode.com/'
+let url = 'https://jsonplaceholder.typicode.com/' // Esto se puede declarar como una constante
 let $btnUsuarios = document.querySelector('#carga-usuarios');
-let controlador = true;
+let controlador = true; //Que significa esto?
 
 async function cargaUsuarios(){
     const response = await fetch(`${url}users`)
@@ -16,7 +16,7 @@ async function tomaPosteos(id){
     return posteos
 }
 
-$btnUsuarios.addEventListener('click', async () => {
+$btnUsuarios.addEventListener('click', async () => { //Supustamente esto lo vas a modificar asi que lo espero bb
     let users = [];
     let fotos = [];
     let botones = document.querySelectorAll('.oculto');
@@ -64,7 +64,7 @@ $btnUsuarios.addEventListener('click', async () => {
     })
 })
 
-function booleano(bool){
+function booleano(bool){ //wtf para que?
     return !bool
 }
 
@@ -77,7 +77,7 @@ function cargaPerfil(usuarios,id,fotos){
 
 }
 
-function controlaId(cont,num){
+function controlaId(cont,num){ //Muy enredada esta logica, que se supone que debe controlar?
     if(num === 1){
         cont < 9 ? cont++ : cont = 0
     }else{
@@ -112,19 +112,23 @@ function eliminarPosteos(){
     $li.forEach(elem => elem.remove())
 }
 
-function subirPosteos(arrayPosts,check){
+function subirPosteos(arrayPosts,check){ //Esta funcion hace mas de una tarea, unicamente deberia subir los posteos
+    //Que es check? Check de que?
     if(check){
+        //Aca tambien llevar a otra funcion
         let $ul = document.querySelector('#lista');
         let $fragment = document.createDocumentFragment();
-    
+        
+        //Desde aca
         arrayPosts.forEach( (li) => {
             const $li = document.createElement('li')
             $li.innerHTML = `<h6>${li.name}</h6><p>${li.body}</p>`
             $fragment.appendChild($li)
-        })
+        })//Hasta aca lo llevaria a otra funcion
     
-        $ul.appendChild($fragment);
-    } else{
+        $ul.appendChild($fragment); //Esta la funcion que se encargar de subir todos los posteos?
+    } 
+    if (!check){ //Revisar lo que son las clausulas de guardas, cambie el else por un if. https://codely.tv/blog/screencasts/clausulas-guarda-refactoring/
         eliminarPosteos();
         console.log('Ya hay posteos!');
     }
